@@ -1,6 +1,6 @@
-module Final-project-7-sprint
+module github.com/capybara120404/final-project-7-sprint
 
-go 1.22.4
+go 1.23.1
 
 require github.com/stretchr/testify v1.9.0
 
