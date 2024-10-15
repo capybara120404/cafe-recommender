@@ -1,14 +1,14 @@
-**Тестируем API с использованием `testify`**
+# Cafe Recommender API
 
-Рассмотрим сервис из предыдущего урока. Напомним логику работы. Он возвращает список кафе по запросу. В запросе указано сколько вернуть кафе и из какого города. Обработчик принимает этот запрос и формирует ответ. Если какие-то параметры указаны некорректно (нет такого города, неправильно указано количество), обработчик вернёт ошибку. Сервер будет ожидать обращение по пути `/cafe`. В GET-параметрах ожидается:
+Cafe Recommender API is a simple web service that suggests cafes in different cities based on the requested number of recommendations. It supports a few predefined cities and cafes.
 
-- `count` — количество кафе, которые нужно вернуть
-- `city` — город, в котором нужно найти кафе
+## Features
 
-Если в параметре `count` указано больше, чем есть всего, должны вернуться все доступные кафе. В сервисе будет только один город `moscow`, в котором будет всего 4 кафе. Нужно реализовать три теста:
+- Get a list of cafes in a specific city.
+- Specify how many cafes you want to receive.
 
-- Запрос сформирован корректно, сервис возвращает код ответа 200 и тело ответа не пустое.
-- Город, который передаётся в параметре `city`, не поддерживается. Сервис возвращает код ответа 400 и ошибку `wrong city value` в теле ответа.
-- Если в параметре `count` указано больше, чем есть всего, должны вернуться все доступные кафе.
+## How It Works
 
-Проверки должны осуществляться с помощью пакета `testify`.
+The service accepts two query parameters:
+- `city`: The city for which you want to get cafe recommendations (e.g., `moscow`).
+- `count`: The number of cafe names you want to get back.
